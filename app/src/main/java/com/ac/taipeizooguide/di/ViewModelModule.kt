@@ -8,5 +8,5 @@ import org.koin.dsl.module
  * Created on 2021/3/8.
  */
 val viewModelModule = module {
-    viewModel { DistricViewModel() }
+    viewModel { DistricViewModel(get()) }
 }

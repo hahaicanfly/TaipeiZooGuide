@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.ac.taipeizooguide.databinding.FragmentDistricBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -17,6 +20,14 @@ class DistrictFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val districViewModel: DistricViewModel by viewModel()
+    val job = Job()
+    val scope = CoroutineScope(job)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        scope.launch {
+            districViewModel.getDistrictList()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,9 +41,6 @@ class DistrictFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        districViewModel.districName.observe(viewLifecycleOwner, {
-            binding.tvDistric.text = it
-        })
     }
 
     override fun onDestroyView() {

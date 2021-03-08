@@ -1,6 +1,8 @@
 package com.ac.taipeizooguide
 
 import android.app.Application
+import com.ac.taipeizooguide.di.networkModule
+import com.ac.taipeizooguide.di.repoModule
 import com.ac.taipeizooguide.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -18,7 +20,7 @@ open class App : Application() {
         startKoin {
             androidLogger(Level.ERROR)
             androidContext(this@App)
-            modules(listOf(viewModelModule))
+            modules(listOf(viewModelModule,networkModule,repoModule))
         }
     }
 }
