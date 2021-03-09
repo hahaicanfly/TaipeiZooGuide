@@ -7,6 +7,6 @@ import org.koin.dsl.module
  * Created on 2021/3/9.
  */
 val repoModule = module {
-    factory { DistrictRepository(get()) }
+    single { DistrictRepository(get(), get()) }
 }
 

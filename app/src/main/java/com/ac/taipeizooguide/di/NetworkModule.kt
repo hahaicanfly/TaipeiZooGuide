@@ -2,6 +2,7 @@ package com.ac.taipeizooguide.di
 
 import com.ac.taipeizooguide.BuildConfig
 import com.ac.taipeizooguide.network.ApiService
+import com.ac.taipeizooguide.network.ResponseHandler
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
@@ -17,6 +18,7 @@ const val TIMEOUT_SEC = 15L
 val networkModule = module {
     factory { provideOkHttpClient() }
     single { provideRetrofit(get()).create(ApiService::class.java) }
+    single { ResponseHandler() }
 }
 
 private fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
