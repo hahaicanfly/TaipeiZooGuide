@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TaipeiZooGuide</string>
+    <string name="no_official_holiday_message">無休館資訊</string>
 </resources>

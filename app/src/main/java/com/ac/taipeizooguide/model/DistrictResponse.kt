@@ -24,6 +24,14 @@ data class District(
     @SerializedName("E_Category")
     val category: String,
     @SerializedName("E_Name")
-    val districtName: String
+    val districtName: String,
+    @SerializedName("E_Info")
+    val info: String,
+    @SerializedName("_id")
+    val id: Int,
+    @SerializedName("E_Memo")
+    val memo: String,
+    @SerializedName("E_URL")
+    val url: String
 
 )

@@ -16,5 +16,6 @@ class DistrictViewModel(private val districtRepository: DistrictRepository) : Vi
     val districtList: LiveData<Response<DistrictResult>> = liveData(Dispatchers.IO) {
         emit(districtRepository.getDistricts())
     }
+//    val districDetailImageUrl =  MutableLiveData<String>()
 
 }

@@ -6,11 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ac.taipeizooguide.R
+import com.ac.taipeizooguide.addOnItemClickListener
 import com.ac.taipeizooguide.databinding.FragmentDistricBinding
 import com.ac.taipeizooguide.model.DistrictResult
 import com.ac.taipeizooguide.network.Response
 import com.ac.taipeizooguide.network.State
+import com.ac.taipeizooguide.ui.OnItemClickListener
 import com.ac.taipeizooguide.ui.adapter.DistrictListAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,11 +31,14 @@ class DistrictFragment : Fragment() {
     private val observer = Observer<Response<DistrictResult>> {
         when (it.state) {
             State.SUCCESS -> {
+                dismissLoading()
                 updateDistrictList(it.data!!)
             }
             State.ERROR -> {
+                dismissLoading()
             }
             State.LOADING -> {
+                showLoading()
             }
         }
     }
@@ -38,22 +46,35 @@ class DistrictFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         _binding = FragmentDistricBinding.inflate(inflater, container, false)
         districtViewModel.districtList.observe(viewLifecycleOwner, observer)
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.rvDistrictList.layoutManager = LinearLayoutManager(context)
-    }
 
     private fun updateDistrictList(districtResult: DistrictResult) {
         binding.rvDistrictList.apply {
+            layoutManager = LinearLayoutManager(context)
             adapter = DistrictListAdapter(districtResult.districtList)
+            addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
+
+            //navigate to detail page
+            addOnItemClickListener(object : OnItemClickListener {
+                override fun onItemClicked(position: Int, view: View) {
+                    findNavController().navigate(R.id.navi_distric_detail)
+                }
+            })
         }
+    }
+
+    private fun showLoading() {
+        binding.pbLoadingMain.visibility = View.VISIBLE
+    }
+
+    private fun dismissLoading() {
+        binding.pbLoadingMain.visibility = View.GONE
     }
 
     override fun onDestroyView() {
