@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -59,11 +60,11 @@ class DistrictFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = DistrictListAdapter(districtResult.districtList)
             addItemDecoration(DividerItemDecoration(context, LinearLayoutManager.VERTICAL))
-
             //navigate to detail page
             addOnItemClickListener(object : OnItemClickListener {
                 override fun onItemClicked(position: Int, view: View) {
-                    findNavController().navigate(R.id.navi_distric_detail)
+                    val bundle = bundleOf("dist" to districtResult.districtList[position])
+                    findNavController().navigate(R.id.navi_distric_detail, bundle)
                 }
             })
         }

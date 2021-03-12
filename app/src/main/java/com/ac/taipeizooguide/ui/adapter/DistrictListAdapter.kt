@@ -8,6 +8,7 @@ import com.ac.taipeizooguide.R
 import com.ac.taipeizooguide.databinding.ItemDistrictBinding
 import com.ac.taipeizooguide.loadUrl
 import com.ac.taipeizooguide.model.District
+import com.ac.taipeizooguide.setMemo
 import com.ac.taipeizooguide.ui.OnItemClickListener
 
 /**
@@ -42,10 +43,7 @@ class DistrictListAdapter(
                 tvDistrictName.text = district.districtName
                 tvDistrictInfo.text = district.info
                 imgDistrict.loadUrl(district.picUrl)
-                tvMemo.text =
-                    if (district.memo.isNotEmpty()) district.memo else itemView.context.resources.getString(
-                        R.string.no_official_holiday_message
-                    )
+                tvMemo.setMemo(district.memo.takeIf { it.isNotEmpty() })
             }
         }
     }

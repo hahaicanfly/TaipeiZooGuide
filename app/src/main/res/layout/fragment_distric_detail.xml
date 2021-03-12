@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/img_district_detail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/view_margin"
         android:scaleType="centerCrop"
+        android:src="@drawable/ic_zoo"
+        app:layout_constraintBottom_toTopOf="@+id/gl_dist_img"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_detail_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/view_margin"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@+id/img_district_detail"
+        tool:text="123123" />
+
+    <TextView
+        android:id="@+id/tv_detail_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/tv_detail_category"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail_info"
+        tool:text="tv_detail_memo" />
+
+    <TextView
+        android:id="@+id/tv_detail_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/sp_info"
+        app:layout_constraintStart_toStartOf="parent"
+        tool:text="tv_detail_category" />
+
+    <TextView
+        android:id="@+id/tv_open_web"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="開啟網頁"
+        app:layout_constraintBottom_toTopOf="@+id/sp_info"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tv_detail_info,tv_detail_memo,tv_detail_category,tv_open_web" />
+
+    <View
+        android:id="@+id/sp_info"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="@dimen/view_margin"
+        android:background="@color/cardview_shadow_start_color"
+        app:layout_constraintTop_toBottomOf="@+id/tv_open_web" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_plant_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/sp_info"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_dist_img"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

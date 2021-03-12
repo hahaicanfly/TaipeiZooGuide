@@ -1,12 +1,14 @@
 package com.ac.taipeizooguide.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 /**
  * Created on 2021/3/9.
  */
 data class DistrictResponse(
-    val result: DistrictResult
+    val result: DistrictResult,
 )
 
 data class DistrictResult(
@@ -15,9 +17,10 @@ data class DistrictResult(
     val count: Int,
     val sort: String,
     @SerializedName("results")
-    val districtList: List<District>
+    val districtList: List<District>,
 )
 
+@Parcelize
 data class District(
     @SerializedName("E_Pic_URL")
     val picUrl: String,
@@ -32,6 +35,5 @@ data class District(
     @SerializedName("E_Memo")
     val memo: String,
     @SerializedName("E_URL")
-    val url: String
-
-)
+    val url: String,
+) : Parcelable
