@@ -23,9 +23,9 @@ class ZooViewModel(private val apiRepository: ApiRepository) : ViewModel() {
         return districtResult.value?.data?.districtList?.get(position)
     }
 
-    fun getPlantList(location: String?): LiveData<Response<PlantResult>> =
-        liveData(Dispatchers.IO) {
-            emit(apiRepository.getPlants(location))
-        }
+    var location: String? = ""
+    val plantResult: LiveData<Response<PlantResult>> = liveData(Dispatchers.IO) {
+        emit(apiRepository.getPlants(location))
+    }
 
 }

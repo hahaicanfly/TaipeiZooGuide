@@ -25,12 +25,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        //disable back btn in toolbar when back to main page
-        supportActionBar?.apply {
-            setDisplayShowHomeEnabled(false)
-            setDisplayHomeAsUpEnabled(false)
-        }
-        super.onBackPressed()
-    }
 }

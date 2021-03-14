@@ -14,6 +14,7 @@ import com.ac.taipeizooguide.addOnItemClickListener
 import com.ac.taipeizooguide.databinding.FragmentDistricBinding
 import com.ac.taipeizooguide.model.DistrictResult
 import com.ac.taipeizooguide.network.State
+import com.ac.taipeizooguide.setActionBar
 import com.ac.taipeizooguide.ui.OnItemClickListener
 import com.ac.taipeizooguide.ui.adapter.DistrictListAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -41,6 +42,7 @@ class DistrictFragment : Fragment() {
     }
 
     private fun setupUI() {
+        setActionBar(false)
         districtListAdapter = DistrictListAdapter(arrayListOf())
         binding.rvDistrictList.apply {
             layoutManager = LinearLayoutManager(context)

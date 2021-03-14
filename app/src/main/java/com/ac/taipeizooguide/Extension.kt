@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide
  * Created on 2021/3/11.
  */
 fun TextView.setMemo(memo: String?) {
-    text = memo ?: this.context.getString(R.string.no_official_holiday_message)
+    text = memo ?: this.context.getString(R.string.message_no_official_holiday)
 }
 
 fun ImageView.loadUrl(picUrl: String?) {
@@ -41,9 +41,10 @@ fun RecyclerView.addOnItemClickListener(onClickListener: OnItemClickListener) {
     })
 }
 
-fun Fragment.setActionBar(enable: Boolean) {
-    if (enable) {
-        (activity as AppCompatActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
-        (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+fun Fragment.setActionBar(enable: Boolean, titleString: String? = getString(R.string.app_name)) {
+    (activity as AppCompatActivity).supportActionBar?.apply {
+        setDisplayShowHomeEnabled(enable)
+        setDisplayHomeAsUpEnabled(enable)
+        title = titleString
     }
 }

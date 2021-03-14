@@ -79,6 +79,16 @@
         app:layout_constraintTop_toBottomOf="@+id/sp_info"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
+    <TextView
+        android:id="@+id/tv_no_plant"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/message_no_plant_data"
+        app:layout_constraintTop_toBottomOf="@+id/sp_info"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_dist_img"
         android:layout_width="match_parent"
