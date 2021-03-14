@@ -2,4 +2,10 @@
     <string name="app_name">TaipeiZooGuide</string>
     <string name="message_no_official_holiday">無休館資訊</string>
     <string name="message_no_plant_data">此區域無植物資訊</string>
+
+    <string name="text_brief">簡介</string>
+    <string name="text_alsoKnow">簡介</string>
+    <string name="text_feature">辨認方式</string>
+    <string name="text_application">功能性</string>
+    <string name="text_last_update">最後更新：%s1</string>
 </resources>

@@ -9,7 +9,6 @@
         android:id="@+id/img_district_detail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/view_margin"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_zoo"
         app:layout_constraintBottom_toTopOf="@+id/gl_dist_img"
@@ -67,33 +66,33 @@
         android:id="@+id/rv_plant_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/sp_info"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_info" />
 
     <ProgressBar
         android:id="@+id/pb_loading_plants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_info"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_info" />
 
     <TextView
         android:id="@+id/tv_no_plant"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center"
-        android:visibility="gone"
         android:text="@string/message_no_plant_data"
-        app:layout_constraintTop_toBottomOf="@+id/sp_info"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sp_info" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_dist_img"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
