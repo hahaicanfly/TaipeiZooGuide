@@ -29,7 +29,7 @@
 
         <include
             android:id="@+id/plant_detail_content"
-            layout="@layout/content_plant_detail"/>
+            layout="@layout/layout_plant_detail_content"/>
 
     </ScrollView>
 
