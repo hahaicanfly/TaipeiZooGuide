@@ -44,7 +44,7 @@
         android:ellipsize="end"
         android:lineSpacingMultiplier="1"
         android:maxLines="2"
-        app:layout_constraintEnd_toStartOf="@+id/img_arrow"
+        app:layout_constraintEnd_toStartOf="@+id/img_arrow_to_district_detail"
         app:layout_constraintStart_toEndOf="@+id/img_district"
         app:layout_constraintTop_toBottomOf="@+id/tv_district_name"
         tool:text="district info" />
@@ -61,7 +61,7 @@
         tool:text="memo" />
 
     <ImageView
-        android:id="@+id/img_arrow"
+        android:id="@+id/img_arrow_to_district_detail"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:src="@drawable/ic_arrow_forward"

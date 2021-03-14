@@ -1,23 +1,25 @@
 package com.ac.taipeizooguide.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ac.taipeizooguide.R
 import com.ac.taipeizooguide.databinding.ItemDistrictBinding
 import com.ac.taipeizooguide.loadUrl
 import com.ac.taipeizooguide.model.District
 import com.ac.taipeizooguide.setMemo
-import com.ac.taipeizooguide.ui.OnItemClickListener
 
 /**
  * Created on 2021/3/10.
  */
-class DistrictListAdapter(
-    private val districtList: List<District>,
-) :
-    RecyclerView.Adapter<DistrictListAdapter.DistrictViewHolder>(){
+class DistrictListAdapter(private val districtList: MutableList<District>) :
+    RecyclerView.Adapter<DistrictListAdapter.DistrictViewHolder>() {
+
+    fun setData(list: List<District>) {
+        this.districtList.apply {
+            clear()
+            addAll(list)
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DistrictViewHolder {
         val binding =
