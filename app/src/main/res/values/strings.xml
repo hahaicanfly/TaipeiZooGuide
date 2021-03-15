@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TaipeiZooGuide</string>
+    <string name="app_name">台北動物園導覽</string>
     <string name="message_no_official_holiday">無休館資訊</string>
     <string name="message_no_plant_data">此區域無植物資訊</string>
 
