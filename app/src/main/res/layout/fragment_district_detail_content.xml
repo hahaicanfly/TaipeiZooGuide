@@ -2,7 +2,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:padding="@dimen/view_padding"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools">
@@ -11,7 +11,10 @@
         android:id="@+id/tv_detail_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="14sp"
+        android:textSize="18sp"
+        android:textColor="@color/color_content_text"
+        android:layout_margin="@dimen/view_margin"
+        android:lineSpacingMultiplier="1"
         app:layout_constraintTop_toTopOf="parent"
         tool:text="教育中心包括博物館展示區、圖書館、演講廳、動物藝坊及動物學堂等，為本園展示動物園文化的櫥窗。館內以動物標本、生態全景展示傳達動物知識及保育觀念，最特別的是還有亞洲象「林旺」的標本展示區，以及恐龍模型展示喔！" />
 
@@ -19,30 +22,36 @@
         android:id="@+id/tv_detail_memo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_content_area"
-        app:layout_constraintBottom_toTopOf="@+id/tv_detail_category"
+        android:textSize="16sp"
+        android:textColor="@color/color_memo_text"
+        android:layout_margin="@dimen/view_margin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_info"
-        tool:text="tv_detail_memo" />
+        tool:text="休館資訊" />
 
     <TextView
         android:id="@+id/tv_detail_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/view_margin"
+        android:textSize="16sp"
+        android:textColor="@color/color_content_text"
+        android:layout_margin="@dimen/view_margin"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail_memo"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tool:text="tv_detail_category" />
+        tool:text="館區分類" />
 
-    <TextView
+    <Button
         android:id="@+id/tv_open_web"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/view_padding"
-        android:text="開啟網頁"
+        android:textSize="16sp"
+        android:text="@string/text_open_web"
+        android:textColor="@color/color_open_web_text"
+        android:textAppearance="?attr/textAppearanceButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        style="?attr/materialButtonOutlinedStyle" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/group_info"
