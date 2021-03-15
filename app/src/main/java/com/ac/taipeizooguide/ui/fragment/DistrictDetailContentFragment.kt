@@ -1,5 +1,7 @@
 package com.ac.taipeizooguide.ui.fragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -48,6 +50,11 @@ class DistrictDetailContentFragment : BaseFragment() {
                 tvDetailInfo.text = info
                 tvDetailMemo.setMemo(memo.takeIf { it.isNotEmpty() })
                 tvDetailCategory.text = category
+
+                tvOpenWeb.setOnClickListener {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                    startActivity(intent)
+                }
             }
         }
     }
