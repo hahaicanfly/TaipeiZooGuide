@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,79 +14,38 @@
         app:layout_constraintBottom_toTopOf="@+id/gl_dist_img"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_detail_info"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/view_margin"
-        android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/img_district_detail"
-        tool:text="123123" />
-
-    <TextView
-        android:id="@+id/tv_detail_memo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/tv_detail_category"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail_info"
-        tool:text="tv_detail_memo" />
-
-    <TextView
-        android:id="@+id/tv_detail_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/sp_info"
-        app:layout_constraintStart_toStartOf="parent"
-        tool:text="tv_detail_category" />
-
-    <TextView
-        android:id="@+id/tv_open_web"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="開啟網頁"
-        app:layout_constraintBottom_toTopOf="@+id/sp_info"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="tv_detail_info,tv_detail_memo,tv_detail_category,tv_open_web" />
-
-    <View
-        android:id="@+id/sp_info"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:layout_marginTop="@dimen/view_margin"
-        android:background="@color/cardview_shadow_start_color"
-        app:layout_constraintTop_toBottomOf="@+id/tv_open_web" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_plant_list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_info" />
-
-    <ProgressBar
-        android:id="@+id/pb_loading_plants"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/view_pager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_info" />
+        app:layout_constraintTop_toBottomOf="@+id/gl_dist_img"
+        app:tabIndicatorColor="#389DC3"
+        app:tabIndicatorHeight="5dp"
+        app:tabSelectedTextColor="#389DC3">
 
-    <TextView
-        android:id="@+id/tv_no_plant"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:gravity="center"
-        android:text="@string/message_no_plant_data"
-        android:visibility="gone"
+        android:orientation="horizontal"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sp_info" />
+        app:layout_constraintTop_toBottomOf="@+id/tabs" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_dist_img"

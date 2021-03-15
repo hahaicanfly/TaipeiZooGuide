@@ -1,4 +1,4 @@
-package com.ac.taipeizooguide.ui.plant
+package com.ac.taipeizooguide.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

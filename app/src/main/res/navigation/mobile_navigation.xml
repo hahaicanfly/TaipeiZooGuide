@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navi_distric"
-        android:name="com.ac.taipeizooguide.ui.district.DistrictFragment"
+        android:name="com.ac.taipeizooguide.ui.fragment.DistrictFragment"
         android:label="Distric"
         tools:layout="@layout/fragment_distric" />
 
     <fragment
         android:id="@+id/navi_distric_detail"
-        android:name="com.ac.taipeizooguide.ui.district.DistrictDetailFragment"
+        android:name="com.ac.taipeizooguide.ui.fragment.DistrictDetailFragment"
         android:label="Distric Detail"
         tools:layout="@layout/fragment_distric_detail" />
 
     <fragment
         android:id="@+id/navi_plant_detail"
-        android:name="com.ac.taipeizooguide.ui.plant.PlantDetailFragment"
+        android:name="com.ac.taipeizooguide.ui.fragment.PlantDetailFragment"
         android:label="Plant Detail"
         tools:layout="@layout/fragment_plant_detail" />
 

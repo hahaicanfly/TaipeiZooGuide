@@ -1,7 +1,6 @@
 package com.ac.taipeizooguide.network
 
 import com.ac.taipeizooguide.model.DistrictResponse
-import com.ac.taipeizooguide.model.DistrictResult
 import com.ac.taipeizooguide.model.PlantResponse
 import retrofit2.http.GET
 import retrofit2.http.Query

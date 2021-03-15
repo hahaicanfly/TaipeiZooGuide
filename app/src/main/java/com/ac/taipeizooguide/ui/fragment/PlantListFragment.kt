@@ -1,17 +1,18 @@
-package com.ac.taipeizooguide.ui.district
+package com.ac.taipeizooguide.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ac.taipeizooguide.*
-import com.ac.taipeizooguide.databinding.FragmentDistricDetailBinding
+import com.ac.taipeizooguide.R
+import com.ac.taipeizooguide.addOnItemClickListener
+import com.ac.taipeizooguide.base.BaseFragment
+import com.ac.taipeizooguide.databinding.FragmentPlantListBinding
 import com.ac.taipeizooguide.model.District
 import com.ac.taipeizooguide.model.Plant
 import com.ac.taipeizooguide.model.PlantResult
@@ -19,41 +20,44 @@ import com.ac.taipeizooguide.network.Response
 import com.ac.taipeizooguide.network.State
 import com.ac.taipeizooguide.ui.OnItemClickListener
 import com.ac.taipeizooguide.ui.adapter.PlantListAdapter
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
- * Created on 2021/3/8.
+ * Created on 2021/3/15.
  */
-class DistrictDetailFragment : Fragment() {
+class PlantListFragment : BaseFragment() {
 
-    private var _binding: FragmentDistricDetailBinding? = null
+    companion object {
+        private const val ARG_PLANT_LIST = "plant_list"
+
+        fun getInstance(district: District): PlantListFragment {
+            return PlantListFragment().apply {
+                arguments = Bundle().apply {
+                    putParcelable(ARG_PLANT_LIST, district)
+                }
+            }
+        }
+    }
+
+    private var _binding: FragmentPlantListBinding? = null
     private val binding get() = _binding!!
-    private val zooViewModel: ZooViewModel by viewModel()
 
     private lateinit var plantListAdapter: PlantListAdapter
-    private val districtDetail: District by lazy {
-        arguments?.get("dist") as District
-    }
     private lateinit var plantList: List<Plant>
+
+    private val districtDetail: District by lazy {
+        arguments?.get(ARG_PLANT_LIST) as District
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDistricDetailBinding.inflate(inflater, container, false)
-
+        _binding = FragmentPlantListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setupUI()
-        setupObserver()
-    }
-
-    private fun setupUI() {
-        setActionBar(true, districtDetail.districtName)
+    override fun setupUI() {
         plantListAdapter = PlantListAdapter(arrayListOf())
 
         binding.apply {
@@ -71,17 +75,10 @@ class DistrictDetailFragment : Fragment() {
                     }
                 })
             }
-
-            with(districtDetail) {
-                imgDistrictDetail.loadUrl(picUrl)
-                tvDetailInfo.text = info
-                tvDetailMemo.setMemo(memo.takeIf { it.isNotEmpty() })
-                tvDetailCategory.text = category
-            }
         }
     }
 
-    private fun setupObserver() {
+    override fun setupObserver() {
 
         zooViewModel.apply {
             location = districtDetail.districtName
@@ -121,10 +118,5 @@ class DistrictDetailFragment : Fragment() {
             setData(plantList)
             notifyDataSetChanged()
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
     }
 }

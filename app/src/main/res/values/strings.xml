@@ -3,6 +3,9 @@
     <string name="message_no_official_holiday">無休館資訊</string>
     <string name="message_no_plant_data">此區域無植物資訊</string>
 
+    <string name="tab_title_district">展區資訊</string>>
+    <string name="tab_title_plants">植物資訊</string>>
+
     <string name="text_brief">簡介</string>
     <string name="text_alsoKnow">簡介</string>
     <string name="text_feature">辨認方式</string>

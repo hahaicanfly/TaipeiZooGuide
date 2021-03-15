@@ -3,7 +3,7 @@ package com.ac.taipeizooguide.base
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.ac.taipeizooguide.ui.district.ZooViewModel
+import com.ac.taipeizooguide.ui.viewmodel.ZooViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -20,6 +20,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     abstract fun setupUI()
+
     abstract fun setupObserver()
 
 }

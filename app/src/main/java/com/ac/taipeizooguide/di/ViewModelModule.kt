@@ -1,6 +1,6 @@
 package com.ac.taipeizooguide.di
 
-import com.ac.taipeizooguide.ui.district.ZooViewModel
+import com.ac.taipeizooguide.ui.viewmodel.ZooViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
