@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.ac.taipeizooguide.ui.OnItemClickListener
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 /**
  * Created on 2021/3/11.
@@ -19,6 +20,7 @@ fun TextView.setMemo(memo: String?) {
 fun ImageView.loadUrl(picUrl: String?) {
     Glide.with(this.context)
         .load(picUrl)
+        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
         .placeholder(R.drawable.ic_zoo)
         .into(this)
 }
