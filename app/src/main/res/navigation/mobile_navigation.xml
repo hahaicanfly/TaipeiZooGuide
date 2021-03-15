@@ -9,18 +9,38 @@
         android:id="@+id/navi_distric"
         android:name="com.ac.taipeizooguide.ui.fragment.DistrictFragment"
         android:label="Distric"
-        tools:layout="@layout/fragment_distric" />
+        tools:layout="@layout/fragment_distric" >
+        <action
+            android:id="@+id/action_to_distric_detail"
+            app:destination="@id/navi_distric_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right"/>
+
+    </fragment>
 
     <fragment
         android:id="@+id/navi_distric_detail"
         android:name="com.ac.taipeizooguide.ui.fragment.DistrictDetailFragment"
         android:label="Distric Detail"
-        tools:layout="@layout/fragment_distric_detail" />
+        tools:layout="@layout/fragment_distric_detail" >
+        <action
+            android:id="@+id/action_navi_distric_detail_to_navi_plant_detail"
+            app:destination="@id/navi_plant_detail"
+            app:enterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_right"/>
+
+    </fragment>
 
     <fragment
         android:id="@+id/navi_plant_detail"
         android:name="com.ac.taipeizooguide.ui.fragment.PlantDetailFragment"
         android:label="Plant Detail"
-        tools:layout="@layout/fragment_plant_detail" />
+        tools:layout="@layout/fragment_plant_detail">
+
+        <action
+            android:id="@+id/action_navi_plant_detail_to_navi_distric_detail"
+            app:destination="@id/navi_distric_detail"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
 
 </navigation>

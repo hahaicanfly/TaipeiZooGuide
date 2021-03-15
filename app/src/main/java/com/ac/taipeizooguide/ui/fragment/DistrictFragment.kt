@@ -50,7 +50,7 @@ class DistrictFragment : BaseFragment() {
 
                     val dist = zooViewModel.getDistrict(position)
                     val bundle = bundleOf("dist" to dist)
-                    findNavController().navigate(R.id.navi_distric_detail, bundle)
+                    findNavController().navigate(R.id.action_to_distric_detail, bundle)
                 }
             })
         }
