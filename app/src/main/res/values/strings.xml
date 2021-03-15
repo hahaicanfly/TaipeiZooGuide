@@ -14,4 +14,7 @@
     <string name="text_application">功能性</string>
     <string name="text_last_update">最後更新：%s1</string>
 
+    <string name="dialog_title_error">發生錯誤</string>
+    <string name="dialog_unknown_error_message">發生未知錯誤，請稍後再試</string>
+    <string name="dialog_confirm">確認</string>
 </resources>

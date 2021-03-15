@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -63,12 +64,14 @@ class DistrictFragment : BaseFragment() {
             when (it.state) {
                 State.SUCCESS -> {
                     dismissLoading()
+                    binding.rvDistrictList.visibility = View.VISIBLE
                     it.data?.let { districtResult ->
                         updateDistrictList(districtResult)
                     }
                 }
                 State.ERROR -> {
                     dismissLoading()
+                    showErrorDialog(it.message ?: getString(R.string.dialog_unknown_error_message))
                 }
                 State.LOADING -> {
                     showLoading()
@@ -87,10 +90,23 @@ class DistrictFragment : BaseFragment() {
 
     private fun showLoading() {
         binding.pbLoadingMain.visibility = View.VISIBLE
+        binding.rvDistrictList.visibility = View.GONE
     }
 
     private fun dismissLoading() {
         binding.pbLoadingMain.visibility = View.GONE
+    }
+
+    private fun showErrorDialog(message: String) {
+        val dialogBuilder = AlertDialog.Builder(requireContext())
+        dialogBuilder
+            .setTitle(getString(R.string.dialog_title_error))
+            .setMessage(message)
+            .setPositiveButton(
+                getString(R.string.dialog_confirm)
+            ) { dialog, id ->
+                dialog.dismiss()
+            }.create().show()
     }
 
     override fun onDestroyView() {

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -89,10 +90,14 @@ class PlantListFragment : BaseFragment() {
                 when (it.state) {
                     State.SUCCESS -> {
                         dismissLoading()
+                        binding.rvPlantList.visibility = View.VISIBLE
                         it.data?.let { plantList -> updatePlantList(plantList) }
                     }
                     State.ERROR -> {
                         dismissLoading()
+                        showErrorDialog(
+                            it.message ?: getString(R.string.dialog_unknown_error_message)
+                        )
                     }
                     State.LOADING -> {
                         showLoading()
@@ -108,7 +113,22 @@ class PlantListFragment : BaseFragment() {
 
     private fun showLoading() {
         binding.pbLoadingPlants.visibility = View.VISIBLE
+        binding.rvPlantList.visibility = View.GONE
     }
+
+
+    private fun showErrorDialog(message: String) {
+        val dialogBuilder = AlertDialog.Builder(requireContext())
+        dialogBuilder
+            .setTitle(getString(R.string.dialog_title_error))
+            .setMessage(message)
+            .setPositiveButton(
+                getString(R.string.dialog_confirm)
+            ) { dialog, id ->
+                dialog.dismiss()
+            }.create().show()
+    }
+
 
     private fun updatePlantList(plantResult: PlantResult) {
         //distinct response data by same name
