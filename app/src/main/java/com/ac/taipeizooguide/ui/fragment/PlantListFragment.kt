@@ -71,7 +71,10 @@ class PlantListFragment : BaseFragment() {
                     override fun onItemClicked(position: Int, view: View) {
                         val plant = plantList[position]
                         val bundle = bundleOf("plant" to plant)
-                        findNavController().navigate(R.id.action_navi_distric_detail_to_navi_plant_detail, bundle)
+                        findNavController().navigate(
+                            R.id.action_navi_distric_detail_to_navi_plant_detail,
+                            bundle
+                        )
                     }
                 })
             }
@@ -108,7 +111,8 @@ class PlantListFragment : BaseFragment() {
     }
 
     private fun updatePlantList(plantResult: PlantResult) {
-        plantList = plantResult.plantList
+        //distinct response data by same name
+        plantList = plantResult.plantList.distinctBy { it.nameCh }
 
         //view state
         binding.rvPlantList.visibility = if (plantList.isEmpty()) View.GONE else View.VISIBLE
