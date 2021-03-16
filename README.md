@@ -17,3 +17,7 @@
 - [Koin](https://github.com/InsertKoinIO/koin)
 - [Retrofit](https://github.com/square/retrofit)
 - [Glide](https://github.com/bumptech/glide)
+
+## Demo
+
+<img src="https://github.com/hahaicanfly/TaipeiZooGuide/blob/master/demo.gif" width="300">
