@@ -9,7 +9,7 @@
     <string name="text_open_web">開啟網頁</string>
 
     <string name="text_brief">簡介</string>
-    <string name="text_alsoKnow">簡介</string>
+    <string name="text_alsoKnow">別名</string>
     <string name="text_feature">辨認方式</string>
     <string name="text_application">功能性</string>
     <string name="text_last_update">最後更新：%s1</string>
